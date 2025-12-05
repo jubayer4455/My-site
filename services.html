@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Services – Abdul Al Jubayer</title>
+
+  <!-- Instant redirect to main services section -->
+  <meta http-equiv="refresh" content="0; url=/#services" />
+  <link rel="canonical" href="https://hellojubayer.online/#services" />
+</head>
+<body>
+  <p>
+    Redirecting to services…
+    If you are not redirected automatically,
+    <a href="/#services">click here</a>.
+  </p>
+</body>
+</html>https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="tools-page">
+  <main class="tools-wrapper">
+    <header class="tools-header">
+      <div class="tools-brand">
+        <div class="tools-avatar">AJ</div>
+        <div>
+          <p class="tools-title">Jubayer Tools</p>
+          <p class="tools-sub">Small tools that live in your browser only.</p>
+        </div>
+      </div>
+      <a href="index.html" class="tools-back">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Back to main site</span>
+      </a>
+    </header>
+
+    <section class="tools-layout">
+
+      <!-- 1. Currency Helper -->
+      <article class="tool-card" id="currency-tool">
+        <div class="tool-head">
+          <div class="tool-icon"><i class="fa-solid fa-coins"></i></div>
+          <div>
+            <h2>Currency Helper</h2>
+            <p>BDT থেকে কিছু জনপ্রিয় মুদ্রায় quick convert (approx rate).</p>
+          </div>
+        </div>
+
+        <div class="tool-body">
+          <label class="tool-label">
+            Amount in BDT
+            <input type="number" id="bdt-amount" class="tool-input" placeholder="1000" />
+          </label>
+
+          <label class="tool-label">
+            Convert to
+            <select id="currency-target" class="tool-select">
+              <option value="USD">USD (US Dollar)</option>
+              <option value="EUR">EUR (Euro)</option>
+              <option value="INR">INR (Indian Rupee)</option>
+            </select>
+          </label>
+
+          <button id="currency-convert" class="btn tool-btn">
+            Convert
+          </button>
+
+          <p id="currency-result" class="tool-result tool-result-small">
+            Enter an amount and hit convert.
+          </p>
+
+          <p class="tool-note">
+            Rates are approximate & offline. Always double-check before sending money.
+          </p>
+        </div>
+      </article>
+
+      <!-- 2. Smart Short Link Builder -->
+      <article class="tool-card" id="shortlink-tool">
+        <div class="tool-head">
+          <div class="tool-icon"><i class="fa-solid fa-link"></i></div>
+          <div>
+            <h2>Smart Short Link Builder</h2>
+            <p>Just helps you design a clean short link for your bio.</p>
+          </div>
+        </div>
+
+        <div class="tool-body">
+          <label class="tool-label">
+            Base domain
+            <input
+              type="text"
+              id="short-base"
+              class="tool-input"
+              value="https://hellojubayer.online"
+            />
+          </label>
+
+          <label class="tool-label">
+            Custom slug
+            <input
+              type="text"
+              id="short-slug"
+              class="tool-input"
+              placeholder="instagram"
+            />
+          </label>
+
+          <label class="tool-label">
+            Destination URL
+            <input
+              type="url"
+              id="short-destination"
+              class="tool-input"
+              placeholder="https://instagram.com/yourprofile"
+            />
+          </label>
+
+          <button id="short-generate" class="btn tool-btn">
+            Generate
+          </button>
+
+          <div id="short-output" class="tool-result">
+            Your generated short link will appear here.
+          </div>
+
+          <p class="tool-note">
+            Copy this idea and map it in Netlify using <code>_redirects</code> later.
+          </p>
+        </div>
+      </article>
+
+      <!-- 3. Thumbnail Layout Preview -->
+      <article class="tool-card" id="thumb-tool">
+        <div class="tool-head">
+          <div class="tool-icon"><i class="fa-solid fa-image"></i></div>
+          <div>
+            <h2>Thumbnail Layout Preview</h2>
+            <p>See a quick grid of your thumbnails. Stays in your browser only.</p>
+          </div>
+        </div>
+
+        <div class="tool-body">
+          <label class="tool-label">
+            Choose thumbnails (max 6)
+            <input
+              type="file"
+              id="thumb-input"
+              class="tool-input"
+              accept="image/*"
+              multiple
+            />
+          </label>
+
+          <div id="thumb-grid" class="thumb-grid">
+            <p class="tool-result-small">No images yet. Select a few to preview.</p>
+          </div>
+
+          <p class="tool-note">
+            Images are not uploaded anywhere – they stay local in your browser.
+          </p>
+        </div>
+      </article>
+
+      <!-- 4. Reel Idea Helper -->
+      <article class="tool-card" id="reel-tool">
+        <div class="tool-head">
+          <div class="tool-icon"><i class="fa-solid fa-clapperboard"></i></div>
+          <div>
+            <h2>Reel Idea Helper</h2>
+            <p>Generate a simple hook + main idea + CTA for your next reel.</p>
+          </div>
+        </div>
+
+        <div class="tool-body">
+          <label class="tool-label">
+            Niche / Topic
+            <input
+              type="text"
+              id="reel-niche"
+              class="tool-input"
+              placeholder="Example: Skill, Topic, Product..."
+            />
+          </label>
+
+          <label class="tool-label">
+            Mood
+            <select id="reel-mood" class="tool-select">
+              <option value="hype">High energy / Hype</option>
+              <option value="calm">Soft & calm</option>
+              <option value="educational">Educational</option>
+            </select>
+          </label>
+
+          <label class="tool-label">
+            Video length
+            <select id="reel-length" class="tool-select">
+              <option value="15">0–15 sec</option>
+              <option value="30">15–30 sec</option>
+              <option value="60">30–60 sec</option>
+            </select>
+          </label>
+
+          <button id="reel-generate" class="btn tool-btn">
+            Generate Idea
+          </button>
+
+          <div id="reel-output" class="tool-result">
+            Your reel idea will appear here.
+          </div>
+
+          <p class="tool-note">
+            Use this as a base. Add your own personality & story on top.
+          </p>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <script>
+    // -------- 1. Currency Helper --------
+    (function () {
+      const amountEl = document.getElementById("bdt-amount");
+      const targetEl = document.getElementById("currency-target");
+      const btn = document.getElementById("currency-convert");
+      const out = document.getElementById("currency-result");
+      if (!amountEl || !targetEl || !btn || !out) return;
+
+      // Approx offline rate (demo only)
+      const RATES = {
+        USD: 0.0091,
+        EUR: 0.0084,
+        INR: 0.76
+      };
+
+      btn.addEventListener("click", function () {
+        const amt = parseFloat(amountEl.value || "0");
+        const target = targetEl.value;
+        if (!amt || amt <= 0) {
+          out.textContent = "Please enter a valid BDT amount.";
+          return;
+        }
+        const rate = RATES[target] || 0;
+        const converted = amt * rate;
+        out.textContent = `${amt.toFixed(2)} BDT ≈ ${converted.toFixed(2)} ${target}`;
+      });
+    })();
+
+    // -------- 2. Smart Short Link Builder --------
+    (function () {
+      const base = document.getElementById("short-base");
+      const slug = document.getElementById("short-slug");
+      const dest = document.getElementById("short-destination");
+      const btn = document.getElementById("short-generate");
+      const out = document.getElementById("short-output");
+      if (!base || !slug || !dest || !btn || !out) return;
+
+      btn.addEventListener("click", function () {
+        const b = (base.value || "").trim().replace(/\/+$/, "");
+        const s = (slug.value || "").trim().replace(/^\/+/, "");
+        const d = (dest.value || "").trim();
+
+        if (!b || !s || !d) {
+          out.textContent = "Fill all three fields to generate a short link.";
+          return;
+        }
+
+        const shortUrl = `${b}/${s}`;
+        out.innerHTML = `
+          <p><strong>Short link:</strong> <a href="${shortUrl}" target="_blank" rel="noopener">${shortUrl}</a></p>
+          <p><strong>Destination:</strong> ${d}</p>
+        `;
+      });
+    })();
+
+    // -------- 3. Thumbnail Layout Preview --------
+    (function () {
+      const input = document.getElementById("thumb-input");
+      const grid = document.getElementById("thumb-grid");
+      if (!input || !grid) return;
+
+      input.addEventListener("change", function () {
+        const files = Array.from(input.files || []).slice(0, 6);
+        grid.innerHTML = "";
+
+        if (!files.length) {
+          grid.innerHTML = '<p class="tool-result-small">No images selected.</p>';
+          return;
+        }
+
+        files.forEach(file => {
+          if (!file.type.startsWith("image/")) return;
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            const img = document.createElement("img");
+            img.src = e.target.result;
+            img.alt = file.name;
+            img.className = "thumb-img";
+            grid.appendChild(img);
+          };
+          reader.readAsDataURL(file);
+        });
+      });
+    })();
+
+    // -------- 4. Reel Idea Helper --------
+    (function () {
+      const nicheEl = document.getElementById("reel-niche");
+      const moodEl = document.getElementById("reel-mood");
+      const lenEl = document.getElementById("reel-length");
+      const btn = document.getElementById("reel-generate");
+      const out = document.getElementById("reel-output");
+      if (!nicheEl || !moodEl || !lenEl || !btn || !out) return;
+
+      const hooks = {
+        hype: [
+          "Stop scrolling for a second…",
+          "Nobody is talking about this…",
+          "This 10-second trick can change your game…"
+        ],
+        calm: [
+          "Let’s slow down for a moment…",
+          "If today feels heavy, watch this…",
+          "Here’s something gentle but powerful…"
+        ],
+        educational: [
+          "Most people do this wrong about",
+          "3 things I wish I knew earlier about",
+          "Here’s a quick breakdown of"
+        ]
+      };
+
+      const mains = [
+        "and I’ll show you a simple way to improve it.",
+        "so you can start applying this from today.",
+        "and turn it into a daily habit.",
+        "with one clear example you can copy."
+      ];
+
+      const ctas = [
+        "Save this so you don’t forget.",
+        "Send this to a friend who needs it.",
+        "Try this today and tell me how it goes.",
+        "Follow for more ideas like this."
+      ];
+
+      function pick(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+      }
+
+      btn.addEventListener("click", function () {
+        const niche = (nicheEl.value || "your skill").trim();
+        const mood = moodEl.value;
+        const length = lenEl.value;
+
+        const hookList = hooks[mood] || hooks.hype;
+        let idea = `${pick(hookList)} ${niche} ${pick(mains)}`;
+
+        if (length === "15") {
+          idea += " Keep it super short and punchy.";
+        } else if (length === "30") {
+          idea += " Use 2–3 quick cuts to keep energy high.";
+        } else {
+          idea += " Show a mini story or before/after for more depth.";
+        }
+
+        idea += ` ${pick(ctas)}`;
+
+        out.textContent = idea;
+      });
+    })();
+  </script>
+</body>
+</html>el-length").value;
+      const out = document.getElementById("reel-output");
+
+      let hook, tone, cta;
+
+      if (mood === "hype") {
+        hook = "Stop scrolling for 5 seconds!";
+        tone = `In ${length}, show a quick before/after about ${topic}. Use fast cuts & bold text.`;
+        cta = "“Save this so you don’t forget” or “Send this to a friend who needs it.”";
+      } else if (mood === "calm") {
+        hook = "Let’s slow down for a moment…";
+        tone = `Use soft music, slow shots and a clean overlay text about ${topic}.`;
+        cta = "“Watch this again tonight” or “Follow for more slow, calm videos.”";
+      } else {
+        hook = "No one is talking about this enough.";
+        tone = `Talk directly to camera about ${topic}, minimal edit, strong message in ${length}.`;
+        cta = "“Comment your honest thoughts” or “Share if this hit you.”";
+      }
+
+      out.innerHTML = `
+        <strong>Hook:</strong> ${hook}<br><br>
+        <strong>Main idea:</strong> ${tone}<br><br>
+        <strong>CTA:</strong> ${cta}
+      `;
+    });
+  </script>
+</body>
+</html>g> ${cta}
+      `;
+    });
+  </script>
+</body>
+</html>

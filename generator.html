@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bio Generator | Abdul Al Jubayer</title>
+
+  <!-- Only fonts & icons, no styles.css -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0f172a, #020617);
+      color: #e5e7eb;
+      padding: 20px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 980px;
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 22px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.85);
+      padding: 18px 16px 20px;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .top-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ff7a7a, #ffd86f, #42e695);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #020617;
+    }
+
+    .title-main {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .title-sub {
+      font-size: 11px;
+      opacity: 0.75;
+    }
+
+    .back-link {
+      font-size: 12px;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .back-link a {
+      color: #7dd3fc;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.3fr);
+      gap: 14px;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.35), rgba(15, 23, 42, 0.98));
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 14px 12px;
+    }
+
+    .card h2 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 3px 8px;
+      margin-left: auto;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+
+    .card p.note {
+      font-size: 11px;
+      opacity: 0.8;
+      margin-bottom: 10px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    label span.tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      opacity: 0.6;
+      margin-left: 4px;
+    }
+
+    input, textarea {
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 7px 10px;
+      background: rgba(15, 23, 42, 0.96);
+      color: #e5e7eb;
+      font-family: inherit;
+      font-size: 12px;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    textarea {
+      border-radius: 12px;
+      min-height: 70px;
+      resize: vertical;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(148, 163, 184, 0.9);
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.6);
+      background: rgba(15, 23, 42, 0.99);
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: none;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.15s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #020617;
+      box-shadow: 0 12px 30px rgba(34, 197, 94, 0.6);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      color: #e5e7eb;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.9);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    .out-info {
+      font-size: 11px;
+      opacity: 0.75;
+      margin-bottom: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .out-info code {
+      font-size: 10px;
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 2px 6px;
+    }
+
+    .output {
+      width: 100%;
+      min-height: 220px;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.98);
+      color: #e5e7eb;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 11px;
+      padding: 8px 9px;
+      resize: vertical;
+      outline: none;
+    }
+
+    .output:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.6);
+    }
+
+    .footer-note {
+      margin-top: 6px;
+      text-align: right;
+      font-size: 10px;
+      opacity: 0.6;
+    }
+
+    @media (max-width: 860px) {
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 14px 10px;
+      }
+      .wrap {
+        padding: 14px 12px 16px;
+      }
+      .card {
+        padding: 12px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div>
+        <div class="top-title">
+          <div class="logo">AJ</div>
+          <div>
+            <div class="title-main">Bio Generator</div>
+            <div class="title-sub">Create simple bio HTML and paste into your own site.</div>
+          </div>
+        </div>
+      </div>
+      <div class="back-link">
+        <span>Back to main site:</span>
+        <a href="index.html"><i class="fa-solid fa-arrow-left-long"></i> hellojubayer.online</a>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- LEFT -->
+      <section class="card">
+        <div class="card-header">
+          <h2><i class="fa-solid fa-wand-magic-sparkles"></i> Your details</h2>
+          <span class="badge">step 1</span>
+        </div>
+        <p class="note">
+          নিচে তোমার ইনফো আর লিংক লিখে <strong>Generate HTML</strong> প্রেস করলে ডান পাশে রেডি টেমপ্লেট পাবে।
+        </p>
+
+        <form id="bio-form" class="form">
+          <div class="field">
+            <label> Name <span class="tag">required</span></label>
+            <input id="name" type="text" placeholder="Example: ABDUL AL JUBAYER" required />
+          </div>
+
+          <div class="field">
+            <label> Main role / tagline <span class="tag">optional</span></label>
+            <input id="role" type="text" placeholder="Example: Game Changer | Digital Creator" />
+          </div>
+
+          <div class="field">
+            <label> Short about text <span class="tag">optional</span></label>
+            <textarea id="about" placeholder="A short line about who you are and what you do."></textarea>
+          </div>
+
+          <div class="field">
+            <label> Social & contact links <span class="tag">optional</span></label>
+            <div class="social-grid">
+              <input id="facebook" type="url" placeholder="Facebook URL" />
+              <input id="tiktok" type="url" placeholder="TikTok URL" />
+              <input id="instagram" type="url" placeholder="Instagram URL" />
+              <input id="whatsapp" type="url" placeholder="WhatsApp link (wa.me/...)" />
+              <input id="email" type="email" placeholder="Email (name@example.com)" />
+              <input id="telegram" type="url" placeholder="Telegram link" />
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn btn-primary">
+              <i class="fa-solid fa-code"></i> Generate HTML
+            </button>
+            <button type="button" id="copy-btn" class="btn btn-ghost">
+              <i class="fa-regular fa-copy"></i> Copy output
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- RIGHT -->
+      <section class="card">
+        <div class="card-header">
+          <h2><i class="fa-solid fa-file-code"></i> Generated HTML</h2>
+          <span class="badge">step 2</span>
+        </div>
+        <div class="out-info">
+          <span><i class="fa-solid fa-circle-info"></i> Copy সব টেক্সট নিয়ে নিজের সাইটে <code>index.html</code> হিসেবে সেভ করো।</span>
+        </div>
+        <textarea id="output" class="output" spellcheck="false" placeholder="Fill the form on the left and click “Generate HTML”."></textarea>
+        <p class="footer-note">
+          Built by Abdul Al Jubayer – simple starter layout for your bio.
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("bio-form");
+    const output = document.getElementById("output");
+    const copyBtn = document.getElementById("copy-btn");
+
+    function escapeHtml(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim() || "Your Name";
+      const role = document.getElementById("role").value.trim() || "Creator";
+      const about = document.getElementById("about").value.trim() || "Short about yourself goes here.";
+
+      const facebook = document.getElementById("facebook").value.trim();
+      const tiktok = document.getElementById("tiktok").value.trim();
+      const instagram = document.getElementById("instagram").value.trim();
+      const whatsapp = document.getElementById("whatsapp").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const telegram = document.getElementById("telegram").value.trim();
+
+      const socials = [];
+      if (facebook) socials.push({ label: "Facebook", icon: "fa-facebook-f", href: facebook });
+      if (tiktok) socials.push({ label: "TikTok", icon: "fa-tiktok", href: tiktok });
+      if (instagram) socials.push({ label: "Instagram", icon: "fa-instagram", href: instagram });
+      if (whatsapp) socials.push({ label: "WhatsApp", icon: "fa-whatsapp", href: whatsapp });
+      if (email) socials.push({ label: "Email", icon: "fa-envelope", href: "mailto:" + email });
+      if (telegram) socials.push({ label: "Telegram", icon: "fa-telegram", href: telegram });
+
+      const socialHtml = socials
+        .map(
+          s => `
+      <a class="btn" href="${escapeHtml(s.href)}" target="_blank" rel="noopener">
+        <span class="icon"><i class="fa-brands ${s.icon}"></i></span>
+        <span>${escapeHtml(s.label)}</span>
+      </a>`
+        )
+        .join("");
+
+      const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>${escapeHtml(name)} | Bio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:"Poppins",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617);
+      color:#e5e7eb;
+      padding:20px 12px;
+    }
+    .card{
+      width:100%;
+      max-width:480px;
+      border-radius:24px;
+      background:radial-gradient(circle at top left,rgba(148,163,184,.4),rgba(15,23,42,.96));
+      border:1px solid rgba(148,163,184,.35);
+      box-shadow:0 24px 80px rgba(0,0,0,.8);
+      padding:24px 20px 22px;
+      text-align:center;
+    }
+    .name{
+      font-size:22px;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:4px;
+    }
+    .role{
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:#a5b4fc;
+      margin-bottom:18px;
+    }
+    .about{
+      font-size:13px;
+      line-height:1.7;
+      opacity:.9;
+      margin-bottom:20px;
+    }
+    .btn-row{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:10px;
+    }
+    .btn{
+      border-radius:999px;
+      padding:9px 14px;
+      border:none;
+      background:rgba(15,23,42,.92);
+      color:#e5e7eb;
+      text-decoration:none;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      font-size:13px;
+      font-weight:500;
+      transition:transform .08s ease,box-shadow .08s ease,background .12s ease;
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 10px 30px rgba(15,23,42,.9);
+      background:rgba(15,23,42,1);
+    }
+    .icon{
+      width:20px;
+      height:20px;
+      border-radius:999px;
+      background:rgba(15,23,42,.9);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:11px;
+    }
+    .footer{
+      margin-top:18px;
+      font-size:10px;
+      opacity:.6;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1 class="name">${escapeHtml(name)}</h1>
+    <p class="role">${escapeHtml(role)}</p>
+    <p class="about">
+      ${escapeHtml(about)}
+    </p>
+    <div class="btn-row">
+      ${socialHtml || "<!-- Add at least one link in generator to show buttons here -->"}
+    </div>
+    <p class="footer">Made with Jubayer bio generator.</p>
+  </main>
+</body>
+</html>`;
+
+      output.value = html.trim();
+      output.scrollTop = 0;
+    });
+
+    copyBtn.addEventListener("click", async () => {
+      if (!output.value.trim()) return;
+      try {
+        await navigator.clipboard.writeText(output.value);
+        copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied';
+        setTimeout(() => {
+          copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy output';
+        }, 1500);
+      } catch (e) {
+        alert("Copy failed. Manually select all text and copy.");
+      }
+    });
+  </script>
+</body>
+</html>
